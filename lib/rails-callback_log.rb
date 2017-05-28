@@ -20,7 +20,7 @@ module RailsCallbackLog
     private
 
     def source_location_filters
-      @@filters ||= %w(app lib).map { |dir| (::Rails.root + dir).to_s }
+      @@filters ||= %w(app domain lib modules).map { |dir| (::Rails.root + dir).to_s }
     end
   end
 

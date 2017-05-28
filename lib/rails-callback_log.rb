@@ -32,7 +32,7 @@ module RailsCallbackLog
       lambda { |*args, &block|
         if !::RailsCallbackLog::FILTER ||
           caller.any? { |line| ::RailsCallbackLog.matches_filter?(line) }
-          ::RailsCallbackLog.logger.debug(format("Callback: %s", @method_name))
+          ::RailsCallbackLog.logger.info(format("Callback: %s", @method_name))
         end
         original_lambda.call(*args, &block)
       }
@@ -47,7 +47,7 @@ module RailsCallbackLog
       lambda { |*args, &block|
         if !::RailsCallbackLog::FILTER ||
           caller.any? { |line| ::RailsCallbackLog.matches_filter?(line) }
-          ::RailsCallbackLog.logger.debug(format("Callback: %s", filter))
+          ::RailsCallbackLog.logger.info(format("Callback: %s", filter))
         end
         original_lambda.call(*args, &block)
       }
